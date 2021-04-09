@@ -9,4 +9,5 @@ module EmailClient {
     requires javafx.swt;
 
     opens com.emmano.emailclient;
+    opens com.emmano.emailclient.views;
 }

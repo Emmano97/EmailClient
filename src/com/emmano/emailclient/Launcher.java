@@ -3,10 +3,14 @@ package com.emmano.emailclient;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class Launcher extends Application {
 
@@ -17,25 +21,19 @@ public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Button btn = new Button();
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/launcher.fxml")));
 
-        btn.setText("Say hello");
-
-        btn.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("Hello World !");
-            }
-        });
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(parent, 300, 250);
 
         primaryStage.setTitle("Hello World !");
+
         primaryStage.setScene(scene);
+
         primaryStage.show();
 
+    }
+
+    public void buttonAction(){
+        System.out.println("Hello here....");
     }
 }
